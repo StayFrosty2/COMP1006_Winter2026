@@ -20,6 +20,6 @@
             <a href="/"> Home </a>
             <a href="#"> About </a>
             <a href="#"> Order Online </a>
-            <a href="#"> Contact </a>
+            <a href="../lab_three/contact.php"> Contact </a>
         </nav>
     </header>
