@@ -46,3 +46,11 @@
         exit;
     }
 ?>
+
+<main>
+    <?php echo "<h2>Thank You " . $firstName . "</h2>"?>
+    <p>Someone will email you back with an answer soon!</p>
+    <a href="index.php">Return to main page</a>
+</main>
+
+<?php include "includes/footer.php" ?>
