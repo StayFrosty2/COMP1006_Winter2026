@@ -9,7 +9,7 @@
 
     // Validation - Serverside
 
-    $errors[] = [];
+    $errors = [];
 
     // Ensure First and Last Name have a value
 
@@ -25,5 +25,24 @@
     if($email == null || $email == "") {
         $errors[] = "Email Address is required";
     }
+    else if(!(filter_var($email, FILTER_VALIDATE_EMAIL))) {
+        $errors[] = "Email Address is invalid, please enter a valid email.";
+    }
 
+    // Ensure Message has a value and is at least 10 characters (prevents spam messages)
+
+    if($message == null || $message == "") {
+        $errors[] = "No message indicated, please enter a message before submitting.";
+    }
+    else if(strlen($message) < 10) {
+        $errors[] = "Message is too short, please do not enter messages under 10 characters (This is to prevent spam messages)";
+    }
+
+    if(!(empty($errors))) {
+        foreach($errors as $error): ?>
+        <li><?php echo $error; ?> </li>
+        <?php endforeach;
+        echo '<a href="contact.php">Return To Contact Page</a>';
+        exit;
+    }
 ?>
