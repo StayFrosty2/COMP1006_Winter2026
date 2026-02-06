@@ -20,8 +20,8 @@
     </fieldset>
 
     <!-- Order Details -->
-    <fieldset>
-      <legend>Order Details</legend>
+    <!-- <fieldset>
+       <legend>Order Details</legend>
 
       <p>
         Enter a quantity for each item (use 0 if you don't want it).
@@ -89,7 +89,7 @@
         </tbody>
       </table>
 
-    </fieldset>
+    </fieldset> -->
 
     <fieldset>
       <legend>Additional Comments</legend>
