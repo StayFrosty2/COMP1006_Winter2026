@@ -68,6 +68,28 @@ if (!empty($errors)) {
 
 /*4*/
 
+$sql = "INSERT INTO orders (first_name, last_name, phone, address, email, comments) VALUES (:first_name, :last_name, :phone, :address, :email, :comments)";
+
+// prepare the query
+
+$stmt = $pdo->prepare($sql);
+
+// map the named placeholder to the user data/actual data
+
+$stmt->bindParam(':first_name', $firstName);
+$stmt->bindParam(':last_name', $lastName);
+$stmt->bindParam(':phone', $phone);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':address', $address);
+$stmt->bindParam(':comments', $comments);
+
+// execute the query
+
+$stmt->execute();
+
+// close the connection
+$pdo = null;
+
 
 ?>
 <? require "includes/header.php"; ?> 
