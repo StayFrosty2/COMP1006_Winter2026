@@ -1,16 +1,28 @@
 <?php
-require "includes/header.php";
-//  TODO: connect to the database 
+// Connect to the database
+require "includes/connect.php";
 
-//   TODO: Grab form data (no validation or sanitization for this lab)
+// Grab form data
+$firstName = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
+$lastName = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
-/*
-  1. Write an INSERT statement with named placeholders
-  2. Prepare the statement
-  3. Execute the statement with an array of values
-  4.
+// SQL Query
+$sql = "
+    insert into subscribers (first_name, last_name, email)
+    values (:first_name, :last_name, :email)
+";
 
-*/
+// Prepare Query
+$stmt = $pdo->prepare($sql);
+
+// Bind parameters
+$stmt->bindParam(":first_name", $firstName);
+$stmt->bindParam(":last_name", $lastName);
+$stmt->bindParam(":email", $email);
+
+// Execute Query
+$stmt->execute();
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +41,7 @@ require "includes/header.php";
 
         <!-- TODO: Display a confirmation message -->
         <!-- Example: "Thanks, Name! You have been added to our mailing list." -->
-
+        <p>Thank you for subscribing, <?=  htmlspecialchars($firstName) ?>. You'll be notified when we post new content at <?= htmlspecialchars($email) ?></p>
 
         <p class="mt-3">
             <a href="subscribers.php">View Subscribers</a>
