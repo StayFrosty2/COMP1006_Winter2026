@@ -1,3 +1,19 @@
+<?php
+
+// Connects to the database
+require("connect.php");
+
+// Placeholder
+$reviews = [];
+
+// Get all posts
+$sql = "SELECT * FROM book_manager.reviews";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$reviews = $stmt->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,5 +21,22 @@
     <title>Book Review Submission | Admin</title>
 </head>
 <body>
-    
+    <main>
+        <!-- If there are no reviews, display a message, else display all reviews -->
+        <?php if (empty($reviews)): ?>
+            <p>No reviews yet</p>
+        <?php else: ?>
+            <div>
+                <?php foreach ($reviews as $re): ?>
+                    <section>
+                        <h3><?= htmlspecialchars($re["title"]); ?></h3>
+                        <p><em>Created On:<?= htmlspecialchars($re["created_at"]); ?></em></p>
+                        <p>Author: <?=  htmlspecialchars($re["author"]); ?></p>
+                        <p>Rating: <?=  htmlspecialchars($re["rating"]); ?></p>
+                        <p>Review Text:<br>"<?=  htmlspecialchars($re["review_text"]); ?>"</p>
+                    </section>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </main>
 </body>
