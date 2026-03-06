@@ -44,7 +44,7 @@ if (!empty($errors)) {
 
 // SQL Query
 $sql = "
-    insert into reviews
+    insert into book_manager.reviews(title, author, rating, review_text)
     values (:title, :author, :rating, :text);
 ";
 
