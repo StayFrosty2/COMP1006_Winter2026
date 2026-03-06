@@ -54,7 +54,7 @@ $stmt = $pdo->prepare($sql);
 // Bind parameters
 $stmt->bindParam(":title", $title);
 $stmt->bindParam(":author", $author);
-$stmt->bindParam(":rating", $rating);
+$stmt->bindParam(":rating", $rating, PDO::PARAM_INT);
 $stmt->bindParam(":text", $text);
 
 // Execute Query
