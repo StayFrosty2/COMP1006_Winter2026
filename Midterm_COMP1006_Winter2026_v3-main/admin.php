@@ -21,6 +21,7 @@ $reviews = $stmt->fetchAll();
     <title>Book Review Submission | Admin</title>
 </head>
 <body>
+    <h1>Admin Page</h1>
     <main>
         <!-- If there are no reviews, display a message, else display all reviews -->
         <?php if (empty($reviews)): ?>
@@ -39,4 +40,5 @@ $reviews = $stmt->fetchAll();
             </div>
         <?php endif; ?>
     </main>
+    <a href="index.php">Return to Homepage</a>
 </body>
