@@ -18,16 +18,16 @@ $errors = [];
 
 // If any of the data is null or missing, add an error to the error array
 if ($title === null || $title === "") {
-    $errors[] = "Username is Required";
+    $errors[] = "Title is Required";
 }
 if ($author === null || $author === "") {
-    $errors[] = "Username is Required";
+    $errors[] = "Author is Required";
 }
 if ($rating === null || $rating === "") {
-    $errors[] = "Username is Required";
+    $errors[] = "Rating is Required";
 }
 if ($text === null || $text === "") {
-    $errors[] = "Username is Required";
+    $errors[] = "Review Text is Required";
 }
 
 if (!empty($errors)) {
