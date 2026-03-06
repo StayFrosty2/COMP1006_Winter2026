@@ -35,6 +35,9 @@ $reviews = $stmt->fetchAll();
                         <p>Author: <?=  htmlspecialchars($re["author"]); ?></p>
                         <p>Rating: <?=  htmlspecialchars($re["rating"]); ?></p>
                         <p>Review Text:<br>"<?=  htmlspecialchars($re["review_text"]); ?>"</p>
+                        <h5> <!-- Empty h5 for spacing --> </h5>
+                        <a href="update.php?id=<?= urlencode($re["id"]); ?>">Edit Review</a>
+                        <a href="delete.php?id=<?= urlencode($re["id"]); ?>" onclick="return confirm('Are you sure you want to delete this review?');">Delete</a>
                     </section>
                 <?php endforeach; ?>
             </div>
