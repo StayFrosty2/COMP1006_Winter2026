@@ -43,5 +43,6 @@ $reviews = $stmt->fetchAll();
             </div>
         <?php endif; ?>
     </main>
+    <h5> <!-- Empty h5 for spacing --> </h5>
     <a href="index.php">Return to Homepage</a>
 </body>

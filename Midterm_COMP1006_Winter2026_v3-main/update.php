@@ -95,19 +95,19 @@ if (!$re) {
 <body>
     <h1>Edit a Book Review</h1>
 
-    <form action="process.php" method="POST">
+    <form method="POST">
 
         <label for="title">Book Title:</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="title" name="title" value="<?= htmlspecialchars($re["title"]) ?>">
 
         <label for="author">Author:</label>
-        <input type="text" id="author" name="author">
+        <input type="text" id="author" name="author" value="<?= htmlspecialchars($re["author"]) ?>">
 
         <label for="rating">Rating (1 to 5):</label>
-        <input type="number" id="rating" name="rating" min="1" max="5">
+        <input type="number" id="rating" name="rating" min="1" max="5" value="<?= htmlspecialchars($re["rating"]) ?>">
 
         <label for="review_text">Review:</label>
-        <textarea id="review_text" name="review_text" rows="6" cols="40"></textarea>
+        <textarea id="review_text" name="review_text" rows="6" cols="40" placeholder="<?= htmlspecialchars($re["review_text"]) ?>"></textarea>
 
         <button type="submit">Submit Review</button>
 
