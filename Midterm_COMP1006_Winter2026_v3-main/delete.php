@@ -4,7 +4,7 @@
 require("connect.php");
 
 // Check if an id is set, if not, send the user back to the homepage
-if(!isset($_GET["id"])) {
+if (!isset($_GET["id"])) {
     header("Location: index.php");
     exit;
 }
@@ -17,3 +17,7 @@ $sql = "DELETE FROM book_manager.reviews WHERE id = :id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 $stmt->execute();
+
+// Return the user to the admin page and exit
+header("Location: admin.php");
+exit();
