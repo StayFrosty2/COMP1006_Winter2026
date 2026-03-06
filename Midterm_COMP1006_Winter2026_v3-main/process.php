@@ -42,6 +42,24 @@ if (!empty($errors)) {
     exit;
 }
 
+// SQL Query
+$sql = "
+    insert into reviews
+    values (:title, :author, :rating, :text);
+";
+
+// Prepare Query
+$stmt = $pdo->prepare($sql);
+
+// Bind parameters
+$stmt->bindParam(":title", $title);
+$stmt->bindParam(":author", $author);
+$stmt->bindParam(":rating", $rating);
+$stmt->bindParam(":text", $text);
+
+// Execute Query
+$stmt->execute();
+
 ?>
 
 <!DOCTYPE html>
