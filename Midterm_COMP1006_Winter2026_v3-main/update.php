@@ -68,6 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Execute Query
     $stmt->execute();
+
+    header("Location: admin.php");
+    exit;
 }
 
 // Creates and executes and SQL script to get the content of a specific post
