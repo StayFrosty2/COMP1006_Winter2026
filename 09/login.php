@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['username'] = $user["username"];
 
             // Redirect the user to the protected orders page
-            $header("LocationL orders.php");
-            
+            $header("Location: orders.php");
+
             // Stop the script immediately after redirecting
             exit;
 
