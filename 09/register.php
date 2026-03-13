@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
 
         // SQL query to check for existing username or email
-       
 
         // Prepare the SQL statement using PDO
  
@@ -95,22 +94,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Hash the password before storing it in the database
         // This ensures passwords are not stored in plain text
-       ;
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // SQL query to insert the new user
-  
+        $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
 
         // Prepare the insert statement
+        $stmt = $pdo->prepare($sql);
        
 
         // Bind the values to the query parameters
-       
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":password", $hashedPassword);
+        $stmt->bindParam(":email", $email);
 
         // Execute the insert query
-   
+        $stmt->execute();
 
         // Set a success message
-    
+        $success = "Registration Success!";
     }
 }
 ?>

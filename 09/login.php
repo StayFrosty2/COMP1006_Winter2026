@@ -51,20 +51,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Regenerate the session ID for security
             // This helps prevent session fixation attacks
-           
+            session_regenerate_id(true);
+
             // Store user information in session variables
             // These variables indicate the user is now logged in
-        
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user["username"];
+
             // Redirect the user to the protected orders page
-           
-
+            $header("LocationL orders.php");
+            
             // Stop the script immediately after redirecting
-
+            exit;
 
         } else {
 
             // If login fails, display an error message
-           
+            $error = "Invalid credentials, please try again.";
         }
     }
 }
