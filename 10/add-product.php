@@ -157,4 +157,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </main>
 
-<?php require "footer.php"; ?>
+<?php require "includes/footer.php"; ?>
