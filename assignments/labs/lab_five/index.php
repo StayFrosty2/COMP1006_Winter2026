@@ -19,6 +19,9 @@
             </ul>
         </nav>
     </header>
+    <main>
+        
+    </main>
 </body>
 
 </html>
