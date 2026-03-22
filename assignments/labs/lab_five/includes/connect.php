@@ -1,7 +1,7 @@
 <?php 
 $host = "localhost"; //hostname
-$db = "lab_5"; //database name
-$user = "root"; //username
+$db = "Cameron200641927"; //database name
+$user = "Cameron200641927"; //username
 $password = ""; //password
 
 //points to the database
