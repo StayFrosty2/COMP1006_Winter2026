@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if (empty($errors)) {
 
-        $sql = "SELECT id FROM users WHERE username = :username";
+        $sql = "SELECT user_id FROM users11 WHERE username = :username";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':username', $username);
         $stmt->execute();
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if (empty($errors)) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (username, password)
+        $sql = "INSERT INTO users11 (username, password)
                 VALUES (:username,:password)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':username', $username);

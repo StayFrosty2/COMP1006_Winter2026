@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    if ($usernameOrEmail === '' || $password === '') {
+    if ($username === '' || $password === '') {
         $error = "Username and password are required.";
     } else {
-        $sql = "SELECT id, username, password
+        $sql = "SELECT user_id, username, password
                 FROM users11
                 WHERE username = :username
                 LIMIT 1";
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
 
-            header("Location: orders.php");
+            header("Location: upload.php");
             exit;
         } else {
             $error = "Invalid credentials. Please try again.";
