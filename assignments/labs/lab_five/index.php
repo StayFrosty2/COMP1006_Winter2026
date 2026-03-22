@@ -43,7 +43,10 @@ $users = $stmt->fetchAll();
                             <img
                                 src="<?= htmlspecialchars($user['image_path']); ?>"
                                 class="profile-picture"
-                                alt="<?= htmlspecialchars($user['username']); ?>'s Profile Picture">
+                                alt="<?= htmlspecialchars($user['username']); ?>'s Profile Picture"
+                                height="300"
+                                width="300">
+                            <p></p>
                         <?php else: ?>
                             <p>(No Profile Picture Set)</p>
                         <?php endif; ?>

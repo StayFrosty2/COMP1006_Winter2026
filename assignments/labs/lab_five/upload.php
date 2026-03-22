@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errors[] = "Only .jpeg, .jpg, .webp, and .png files are allowed.";
             }
             else {
-                $extension = pathinfo($_FILES['pfp']['username'], PATHINFO_EXTENSION);
+                $extension = pathinfo($_FILES['pfp']['name'], PATHINFO_EXTENSION);
                 $safeFilename = uniqid('pfp_', true) . "." . strtolower($extension);
                 $destination = __DIR__ . '\\uploads\\' . $safeFilename;
                 if(move_uploaded_file($_FILES['pfp']['tmp_name'], $destination)) {
@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if (empty($errors)) {
-        $sql = "UPDATE users11 (image_path)
-                SET (:image_path)
+        $sql = "UPDATE users11
+                SET image_path = :image_path
                 WHERE user_id = :id;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':image_path', $imagePath);
