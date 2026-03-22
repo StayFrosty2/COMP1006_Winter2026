@@ -1,7 +1,7 @@
 <?php 
-$host = "localhost"; //hostname
+$host = "172.31.22.43"; //hostname
 $db = "Cameron200641927"; //database name
-$user = "Cameron200641927"; //username
+$user = "lamp.computerstudi.es"; //username
 $password = ""; //password
 
 //points to the database
