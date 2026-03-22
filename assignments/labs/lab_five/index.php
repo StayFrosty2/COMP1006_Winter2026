@@ -2,7 +2,7 @@
 require "includes/connect.php";
 
 // Get all users and show their pfps (no way to do this without)
-$sql = "SELECT username, image_path FROM users11 ORDER BY created_at DESC";
+$sql = "SELECT * FROM lab_5.users11 ORDER BY created_at ASC";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchAll();
@@ -37,12 +37,13 @@ $users = $stmt->fetchAll();
             <ul>
                 <?php foreach ($users as $user): ?>
                     <li>
-                        <p><? htmlspecialchars($user['username']); ?></p>
+                        <p>ID: <?= htmlspecialchars($user['user_id']); ?></p>
+                        <p>Name: <?= htmlspecialchars($user['username']); ?></p>
                         <?php if (!empty($user['image_path'])): ?>
                             <img
-                                src="<?= htmlspecialchars($product['image_path']); ?>"
+                                src="<?= htmlspecialchars($user['image_path']); ?>"
                                 class="profile-picture"
-                                alt="<?= htmlspecialchars($product['username']); ?>'s Profile Picture">
+                                alt="<?= htmlspecialchars($user['username']); ?>'s Profile Picture">
                         <?php else: ?>
                             <p>(No Profile Picture Set)</p>
                         <?php endif; ?>
