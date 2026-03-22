@@ -62,11 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             <?php endif; ?>
             <form method="post" class="mt-3">
-                <label for="username_or_email" class="form-label">Username or Email</label>
+                <label for="username" class="form-label">Username</label>
                 <input
                     type="text"
-                    id="username_or_email"
-                    name="username_or_email"
+                    id="username"
+                    name="username"
                     class="form-control mb-3"
                     required>
 
