@@ -60,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //create a unique filename so uploaded files don't overwrite 
                 $safeFilename = uniqid('product_', true) . '.' . strtolower($extension);
                 //build the full server path where the file will be stored 
-                $destination = __DIR__ . '/uploads/' . $safeFilename;
+                $destination = __DIR__ . '\\uploads\\' . $safeFilename;
                 if (move_uploaded_file($_FILES['product_image']['tmp_name'], $destination)) {
                     //save the relative path to the database
-                    $imagePath = 'uploads/' . $safeFilename; 
+                    $imagePath = 'uploads\\' . $safeFilename; 
                 } else {
                     $errors[] = "Image uploaded failed!"; 
                 }
