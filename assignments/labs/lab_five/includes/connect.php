@@ -2,7 +2,7 @@
 $host = "localhost"; //hostname
 $db = "Cameron200641927"; //database name
 $user = "Cameron200641927"; //username
-$password = "7yMr2RIwF5"; //password
+$password = ""; //password
 
 //points to the database
 $dsn = "mysql:host=$host;dbname=$db";
